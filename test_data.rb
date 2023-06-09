@@ -124,3 +124,15 @@
 
 #   <%= f.submit "Submit New Item" %>
 # <% end %>
+
+# Remove line 2 from the Merchants/show view which displayed the image_tag (image) by referencing the POROs object @merchant_photo.url
+# <%= image_tag @merchant_photo.url %>
+
+# Remove line 19 and on from the Layouts/application view ..., this code displays the app_logo (image) object referenceing the application controller. 
+# <div class = "app_logo">
+#   <%= image_tag ApplicationController.app_logo %>
+#   <p><%= ApplicationController.app_logo_likes %> Likes!</p>
+# </div>
+
+# Remove line 1 and on from the Merchants/items/show view ..., this code displays the item_photo.url (image) object referenceing the merchants/items controller. 
+# <%= image_tag @item_photo.url %>
