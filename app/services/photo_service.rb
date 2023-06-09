@@ -1,4 +1,4 @@
-# class PhotoService
+class PhotoService
 #   def get_url(url)
 #     response = HTTParty.get(url)
 #     parsed = JSON.parse(response.body, symbolize_names: true)
@@ -15,4 +15,4 @@
 #   def merchant(merchant_name)
 #     get_url("https://api.unsplash.com/photos/random?client_id=41FnloUJRwgHF3waPM704zSuS0VEAEtJDWpC1rvd8uQ&query=#{merchant_name}")
 #   end
-# end
+end
