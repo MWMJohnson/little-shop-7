@@ -14,7 +14,14 @@
 
 <%= link_to "Create New Merchant", new_admin_merchant_path, method: :get %>
 
-
+<div class="admin_top_merchants_by_revenue", style="float:right">
+<h2>Top Merchants</h2>
+<ol>
+<% @merchants.top_5_by_revenue.each do |merchant| %>
+  <li><%= link_to "#{merchant.name}", admin_merchant_path(merchant) %> <%=" - #{number_to_currency(merchant.revenue / 100, unit: "$", separator: ".", delimiter: ",")} in sales" %></li>
+  <p><%= "Top Day for #{merchant.name} was #{merchant.best_day}" %></p>
+<% end %>
+</div>
 
 <div class="enabled_admin_merchants">
   <h2>Enabled Merchants</h2>
@@ -31,11 +38,3 @@
     <%= button_to "Enable #{merchant.name}", admin_merchant_path(id: "#{merchant.id}", status: 0), method: :patch %>
   <% end %>
 </div>
-
-<div class="admin_top_merchants_by_revenue">
-<h2>Top Merchants</h2>
-<ol>
-<% @merchants.top_5_by_revenue.each do |merchant| %>
-  <li><%= link_to "#{merchant.name}", admin_merchant_path(merchant) %> <%=" - #{number_to_currency(merchant.revenue / 100, unit: "$", separator: ".", delimiter: ",")} in sales" %></li>
-  <p><%= "Top Day for #{merchant.name} was #{merchant.best_day}" %></p>
-<% end %>
